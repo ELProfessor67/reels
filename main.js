@@ -8,7 +8,7 @@ reels.forEach((src) => {
   const section = document.createElement('section');
   section.classList.add("box");
   const video = document.createElement('video');
- // video.setAttribute('src',src);
+  video.setAttribute('src',src);
   video.setAttribute('data-src',src);
   video.setAttribute('controls','');
   video.classList.add('reelbox');
@@ -31,11 +31,6 @@ let options= {
 const callback = (entries, observer) => {
   const [entry] = entries;
   const video =entry.target;
-  let src = video.getAttribute('src');
-  if(!src){
-    src = video.getAttribute('data-src');
-    video.setAttribute('src',src);
-  }
   if(entry.isIntersecting){
     video.play();
   }else{
